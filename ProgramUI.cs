@@ -148,7 +148,7 @@ namespace ConsoleGame
                 System.Threading.Thread.Sleep(10);
             }
             System.Threading.Thread.Sleep(1000);
-            if (Console.KeyAvailable)
+            while (Console.KeyAvailable)
                 Console.ReadKey();
 
             Console.SetCursorPosition(1, arenaHeight + 1);
