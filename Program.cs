@@ -147,6 +147,7 @@ namespace ConsoleGame
                 }
                 System.Threading.Thread.Sleep(10);
             }
+            System.Threading.Thread.Sleep(1000);
             if (Console.KeyAvailable)
                 Console.ReadKey();
             
@@ -164,7 +165,7 @@ namespace ConsoleGame
         static Point GetRandomPoint()
         {
             Point point = new Point();
-            Random rand = new Random();
+            Random rand = new Random(Guid.NewGuid().GetHashCode());
             do
             {
                 point.X = rand.Next(2, arenaWidth - 1);
@@ -208,7 +209,6 @@ namespace ConsoleGame
                         MainGrid[x - 1, y - 1] = '.';
                 }
             }
-
         }
 
         static void UpdateGrid(Snake snake)

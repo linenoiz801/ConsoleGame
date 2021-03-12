@@ -41,6 +41,7 @@ namespace ConsoleGame
 
         public void ChangeDirection(Direction dir)
         {
+            //Do not allow a complete 180. That would be insta-crash.
             if (((dir == Direction.Up) && (TravelDirection != Direction.Down)) ||
                 ((dir == Direction.Down) && (TravelDirection != Direction.Up)) ||
                 ((dir == Direction.Left) && (TravelDirection != Direction.Right)) ||
@@ -62,7 +63,7 @@ namespace ConsoleGame
                     break;
                 }
             }
-            if ((HeadPos.X <= 0) || (HeadPos.X >= ArenaSize.X) || (HeadPos.Y <= 0) || (HeadPos.Y >= ArenaSize.Y))
+            if ((HeadPos.X <= 0) || (HeadPos.X >= ArenaSize.X-1) || (HeadPos.Y <= 0) || (HeadPos.Y >= ArenaSize.Y-1))
                 result = true;
 
             return result;
